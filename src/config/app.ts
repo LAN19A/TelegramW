@@ -11,7 +11,7 @@
 
 import type {DcId} from '../types';
 
-export const MAIN_DOMAIN = 'web.telegram.org';
+export const MAIN_DOMAIN = 'tg.zysk.top';
 
 const threads = Math.min(4, navigator.hardwareConcurrency ?? 4);
 
@@ -27,14 +27,14 @@ const App = {
   domains: [MAIN_DOMAIN] as string[],
   baseDcId: 2 as DcId,
   isMainDomain: location.hostname === MAIN_DOMAIN,
-  suffix: 'K',
+  suffix: 'W',
   threads,
   cryptoWorkers: threads
 };
 
-if(App.isMainDomain) { // use Webogram credentials then
-  App.id = 2496;
-  App.hash = '8da85b0d5bfe62527e5b244c209159c3';
-}
+// if(App.isMainDomain) { // use Webogram credentials then
+//   App.id = 2496;
+//   App.hash = '8da85b0d5bfe62527e5b244c209159c3';
+// }
 
 export default App;

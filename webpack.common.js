@@ -13,7 +13,7 @@ const HtmlWebpackInjectPreload = require('@principalstudio/html-webpack-inject-p
 
 const allowedIPs = ['127.0.0.1'];
 const devMode = process.env.NODE_ENV !== 'production';
-const useLocal = true;
+const useLocal = false;
 const useLocalNotLocal = false;
 
 if(devMode) {
@@ -40,8 +40,8 @@ const opts = {
   'ifdef-fill-with-blanks': true // add this to remove code with blank spaces instead of "//" comments
 };
 
-const domain = 'yourdomain.com';
-const localIp = '192.168.92.78';
+const domain = 'tg.zysk.top';
+const localIp = '192.168.2.19';
 
 const middleware = (req, res, next) => {
   let IP = '';
@@ -244,7 +244,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Telegram Web',
       description: 'Telegram is a cloud-based mobile and desktop messaging app with a focus on security and speed.',
-      url: 'https://web.telegram.org/k/',
+      url: `https://${domain}`,
       filename: 'index.html',
       // template: 'public/index_template.html',
       template: 'src/index.hbs',
