@@ -179,41 +179,43 @@ export class AppSidebarLeft extends SidebarSlider {
         const url = I18n.format('TelegramFeaturesUrl', true);
         appImManager.openUrl(url);
       }
-    }, {
-      icon: 'bug',
-      text: 'ReportBug',
-      onClick: () => {
-        const a = document.createElement('a');
-        a.target = '_blank';
-        a.href = 'https://bugs.telegram.org/?tag_ids=40&sort=time';
-        document.body.append(a);
-        a.click();
-        setTimeout(() => {
-          a.remove();
-        }, 0);
-      }
-    }, {
-      icon: 'char z',
-      text: 'ChatList.Menu.SwitchTo.Z',
-      onClick: () => {
-        Promise.all([
-          sessionStorage.set({kz_version: 'Z'}),
-          sessionStorage.delete('tgme_sync')
-        ]).then(() => {
-          location.href = 'https://web.telegram.org/z/';
-        });
-      },
-      verify: () => App.isMainDomain
-    }, {
-      icon: 'char w',
-      text: 'ChatList.Menu.SwitchTo.Webogram',
-      onClick: () => {
-        sessionStorage.delete('tgme_sync').then(() => {
-          location.href = 'https://web.telegram.org/?legacy=1';
-        });
-      },
-      verify: () => App.isMainDomain
-    }];
+    }
+    //   {
+    //   icon: 'bug',
+    //   text: 'ReportBug',
+    //   onClick: () => {
+    //     const a = document.createElement('a');
+    //     a.target = '_blank';
+    //     a.href = 'https://bugs.telegram.org/?tag_ids=40&sort=time';
+    //     document.body.append(a);
+    //     a.click();
+    //     setTimeout(() => {
+    //       a.remove();
+    //     }, 0);
+    //   }
+    // }, {
+    //   icon: 'char z',
+    //   text: 'ChatList.Menu.SwitchTo.Z',
+    //   onClick: () => {
+    //     Promise.all([
+    //       sessionStorage.set({kz_version: 'Z'}),
+    //       sessionStorage.delete('tgme_sync')
+    //     ]).then(() => {
+    //       location.href = 'https://web.telegram.org/z/';
+    //     });
+    //   },
+    //   verify: () => App.isMainDomain
+    // }, {
+    //   icon: 'char w',
+    //   text: 'ChatList.Menu.SwitchTo.Webogram',
+    //   onClick: () => {
+    //     sessionStorage.delete('tgme_sync').then(() => {
+    //       location.href = 'https://web.telegram.org/?legacy=1';
+    //     });
+    //   },
+    //   verify: () => App.isMainDomain
+    // }
+    ];
 
     const filteredButtons = menuButtons.filter(Boolean);
 
