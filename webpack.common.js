@@ -40,8 +40,8 @@ const opts = {
   'ifdef-fill-with-blanks': true // add this to remove code with blank spaces instead of "//" comments
 };
 
-const domain = 'tg.zysk.top';
-const localIp = '192.168.2.19';
+const domain = 'yourdomain.com';
+const localIp = '192.168.92.78';
 
 const middleware = (req, res, next) => {
   let IP = '';

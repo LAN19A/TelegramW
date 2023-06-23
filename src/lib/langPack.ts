@@ -282,7 +282,8 @@ namespace I18n {
     }
 
     try {
-      pluralRules = new Intl.PluralRules(langPack.lang_code);
+      // pluralRules = new Intl.PluralRules(langPack.lang_code);
+      pluralRules = new Intl.PluralRules(langPack.lang_code.includes('zh-han') ? 'zh-cn' : langPack.lang_code);
     } catch(err) {
       console.error('pluralRules error', err);
       pluralRules = new Intl.PluralRules(langPack.lang_code.split('-', 1)[0]);

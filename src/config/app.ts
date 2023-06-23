@@ -11,7 +11,7 @@
 
 import type {DcId} from '../types';
 
-export const MAIN_DOMAIN = 'tg.zysk.top';
+export const MAIN_DOMAIN = 'web.telegram.org';
 
 const threads = Math.min(4, navigator.hardwareConcurrency ?? 4);
 
@@ -23,11 +23,11 @@ const App = {
   build: +process.env.BUILD,
   langPackVersion: '0.5.1',
   langPack: 'macos',
-  langPackCode: 'en',
+  langPackCode: 'zh-hans-raw',
   domains: [MAIN_DOMAIN] as string[],
   baseDcId: 2 as DcId,
   isMainDomain: location.hostname === MAIN_DOMAIN,
-  suffix: 'W',
+  suffix: 'K',
   threads,
   cryptoWorkers: threads
 };

@@ -53,6 +53,7 @@ export function constructTelegramWebSocketUrl(dcId: DcId, connectionType: Connec
   const suffix = getTelegramConnectionSuffix(connectionType);
   const path = connectionType !== 'client' ? 'apiws' + TEST_SUFFIX + (premium ? PREMIUM_SUFFIX : '') : ('apiws' + TEST_SUFFIX);
   const chosenServer = `wss://${App.suffix.toLowerCase()}ws${dcId}${suffix}.web.telegram.org/${path}`;
+  // const chosenServer = `wss://yourdomain.com`;
 
   return chosenServer;
 }
@@ -103,6 +104,7 @@ export class DcConfigurator {
       const subdomain = this.sslSubdomains[dcId - 1] + suffix;
       const path = Modes.test ? 'apiw_test1' : 'apiw1';
       chosenServer = 'https://' + subdomain + '.web.telegram.org/' + path;
+      // chosenServer = `https://yourdomain.com`;
     } else {
       for(const dcOption of this.dcOptions) {
         if(dcOption.id === dcId) {

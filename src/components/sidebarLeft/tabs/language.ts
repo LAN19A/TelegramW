@@ -11,6 +11,7 @@ import rootScope from '../../../lib/rootScope';
 import RadioField from '../../radioField';
 import Row, {RadioFormFromRows} from '../../row';
 import {SliderSuperTab} from '../../slider'
+import {LangPackLanguage} from '../../../layer';
 
 export default class AppLanguageTab extends SliderSuperTab {
   public static getInitArgs() {
@@ -38,6 +39,31 @@ export default class AppLanguageTab extends SliderSuperTab {
       p.languages2
     ]).then(([languages1, languages2]) => {
       const rendered: Set<string> = new Set();
+      const zhHans: LangPackLanguage = {
+        _: 'langPackLanguage',
+        lang_code: 'zh-hans-raw',
+        name: 'Simplified Chinese',
+        native_name: '简体中文',
+        pFlags: {official: true},
+        plural_code: 'zh-cn',
+        strings_count: 4232,
+        translated_count: 4232,
+        translations_url: 'https://t.me/setlanguage/zh-hans-beta'
+      };
+      const zhHant: LangPackLanguage = {
+        _: 'langPackLanguage',
+        lang_code: 'zh-hant-raw',
+        name: 'Traditional Chinese',
+        native_name: '繁體中文',
+        pFlags: {official: true},
+        plural_code: 'zh-hk',
+        strings_count: 4232,
+        translated_count: 4232,
+        translations_url: 'https://t.me/setlanguage/zh-hant-beta'
+      };
+      if(!languages2.some(i => i.lang_code === 'zh-hans-raw')) {
+        languages2.unshift(...[zhHans, zhHant]);
+      }
       const webLangCodes = languages1.map((language) => language.lang_code);
 
       const random = randomLong();
